@@ -1,0 +1,43 @@
+USE [PRODUCT_CRUD]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 09-01-2025 10:05:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 09-01-2025 10:05:01 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[SN] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [nvarchar](max) NOT NULL,
+	[Created] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[SN] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20250109063125_product', N'9.0.0')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20250109151507_Product1', N'9.0.0')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20250109152849_Product', N'9.0.0')
+GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
+
+INSERT [dbo].[Products] ([SN], [ProductName], [Created]) VALUES (1, N'IPhone', CAST(N'2025-01-09T17:00:00.0000000' AS DateTime2))
+INSERT [dbo].[Products] ([SN], [ProductName], [Created]) VALUES (2, N'Moto', CAST(N'2025-01-09T21:00:00.0000000' AS DateTime2))
+INSERT [dbo].[Products] ([SN], [ProductName], [Created]) VALUES (3, N'Samsung', CAST(N'2025-01-09T18:54:00.0000000' AS DateTime2))
+INSERT [dbo].[Products] ([SN], [ProductName], [Created]) VALUES (4, N'Realme', CAST(N'2025-01-09T21:05:00.0000000' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Products] OFF
+GO
